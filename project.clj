@@ -18,10 +18,14 @@
                  [cljsjs/react-dom-server "0.14.3-0"]
 
                  #_[org.omcljs/om "0.9.0"]
-                 #_[reagent "0.5.1"]]
+                 #_[reagent "0.5.1"]
+
+                 [com.cemerick/piggieback "0.2.1"]
+                 [figwheel-sidecar "0.5.0-2"]]
   
   :plugins [[lein-figwheel "0.5.0-6"]
-            [lein-cljsbuild "1.1.2" :exclusions [org.clojure/clojure]]]
+            [lein-cljsbuild "1.1.2" :exclusions [org.clojure/clojure]]
+            [cider/cider-nrepl "0.8.1"]]
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled"
                                     "target"]
@@ -52,4 +56,6 @@
                                    :output-to  "resources/public/js/compiled/hello_world.js"
                                    :optimizations :advanced}}]}
 
-  :figwheel { :css-dirs ["resources/public/css"] })
+  :figwheel { :css-dirs ["resources/public/css"] }
+  :nrepl-middleware [cemerick.piggieback/wrap-cljs-repl])
+

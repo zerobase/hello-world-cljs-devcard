@@ -9,7 +9,7 @@
 
 (defcard first-card
   (sab/html [:div
-             [:h1 "This is your first devcard!"]]))
+             [:h1 "This is my first devcard!"]]))
 
 (defn main []
   ;; conditionally start the app based on whether the #main-app-area
@@ -22,3 +22,7 @@
 ;; remember to run lein figwheel and then browse to
 ;; http://localhost:3449/cards.html
 
+;; M-x cider-jack-in
+;; (use 'figwheel-sidecar.repl-api)
+;; (start-figwheel!)
+;; (cljs-repl)
