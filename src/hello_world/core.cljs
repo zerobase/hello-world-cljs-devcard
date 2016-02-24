@@ -11,11 +11,11 @@
   (sab/html [:div
              [:h1 "This is my first devcard!"]]))
 
-(defn square-range [x] (map #(* % %) (range x)))
+(defn square-range [& args] (map #(* % %) (apply range args)))
 
 (defcard square-range
   "Here's an output of `(square-range)`"
-  (square-range 20))
+  (square-range 0 10 2))
 
 (defn main []
   ;; conditionally start the app based on whether the #main-app-area
