@@ -1,7 +1,9 @@
 (ns hello-world.core
   (:require
    #_[om.core :as om :include-macros true]
-   [sablono.core :as sab :include-macros true])
+   [sablono.core :as sab :include-macros true]
+   [devcards.core]
+   [cljs.test :as t :include-macros true :refer-macros [testing is]])
   (:require-macros
    [devcards.core :as dc :refer [defcard deftest]]))
 
@@ -16,6 +18,11 @@
 (defcard square-range
   "Here's an output of `(square-range)`"
   (square-range 0 10 2))
+
+(deftest square-range-test
+  (testing "square version of clojure.core/range")
+    (is (= (square-range 0 10 2)
+           '(0 4 16 36 64))))
 
 (defn main []
   ;; conditionally start the app based on whether the #main-app-area
