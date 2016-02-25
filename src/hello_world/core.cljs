@@ -24,6 +24,27 @@
     (is (= (square-range 0 10 2)
            '(0 4 16 36 64))))
 
+(def people [{:name "Ishibashi" :id "ishibashi"}
+             {:name "Kaneko" :id "kaneko"}
+             {:name "Kurokawa" :id "kmami"}])
+
+(defcard people-data
+  "## Sample data"
+  people)
+
+(defn names [x]
+  "list of names"
+  (map :name x))
+
+(defcard people-names
+  "`names` extracts names of people map"
+  (names people))
+
+(deftest people-names-test
+  (t/testing "testing `people-names`"
+    (is (= (names people)
+           '("Ishibashi" "Kaneko" "Kurokawa")))))
+
 (defn main []
   ;; conditionally start the app based on whether the #main-app-area
   ;; node is on the page
